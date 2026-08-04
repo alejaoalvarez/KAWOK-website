@@ -1,0 +1,211 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Archivo", system-ui, sans-serif;
+  --font-body: "Newsreader", Georgia, serif;
+  --rule: rgba(20, 24, 15, 0.16);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-parchment text-ink font-body antialiased;
+    font-size: 17px;
+    line-height: 1.68;
+    font-optical-sizing: auto;
+  }
+  /*
+   * The headings are an expanded grotesque, not a serif. It reads like
+   * museum wayfinding and exhibition signage rather than a wedding
+   * invitation, and it sets the body serif off properly.
+   */
+  h1, h2, h3, h4 {
+    @apply font-display;
+    font-weight: 600;
+    font-stretch: 118%;
+    letter-spacing: -0.018em;
+    line-height: 1.06;
+    text-wrap: balance;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.terracotta");
+    outline-offset: 3px;
+  }
+  ::selection {
+    background: theme("colors.amber");
+    color: theme("colors.ink");
+  }
+}
+
+@layer components {
+  /* --- type roles ------------------------------------------------------ */
+  .eyebrow {
+    @apply font-display text-[0.7rem] uppercase tracking-eyebrow text-cacao;
+    font-weight: 600;
+    font-stretch: 100%;
+    letter-spacing: 0.26em;
+  }
+  .dark-band .eyebrow {
+    @apply text-amber;
+  }
+  .lede {
+    @apply text-[1.05rem] md:text-[1.15rem];
+    color: rgba(20, 24, 15, 0.78);
+  }
+  .dark-band .lede {
+    color: rgba(239, 233, 220, 0.78);
+  }
+  .h-hero {
+    font-size: clamp(2.5rem, 7vw, 5.4rem);
+    line-height: 1;
+  }
+  .h-section {
+    font-size: clamp(1.9rem, 4vw, 3rem);
+  }
+  .h-sub {
+    font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  }
+
+  /* --- layout ---------------------------------------------------------- */
+  .wrap {
+    @apply mx-auto max-w-content px-5 md:px-10 lg:px-16;
+  }
+  .band {
+    @apply py-[clamp(4rem,9vw,8.5rem)];
+  }
+  .dark-band {
+    @apply bg-ink text-parchment;
+  }
+
+  /*
+   * SIGNATURE MOTIF — a course of bottle ends.
+   * Every wall on this project is a grid of bottle bases seen end-on, so
+   * that circle is the one shape the whole design system is built from.
+   * It appears as a rule between sections, as the step numbers, and as the
+   * fading field of glass at the end of the temple section.
+   */
+  .course {
+    height: 20px;
+    width: 100%;
+    background-image: radial-gradient(
+      circle at 11px 10px,
+      transparent 0 3.2px,
+      var(--rule) 3.2px 4.6px,
+      transparent 4.7px
+    );
+    background-size: 22px 20px;
+  }
+  .dark-band .course {
+    --rule: rgba(239, 233, 220, 0.24);
+  }
+
+  .bottle-end {
+    @apply grid h-12 w-12 place-items-center rounded-full font-display text-[0.95rem];
+    border: 1.5px solid theme("colors.jade");
+    background: radial-gradient(
+      circle at 34% 30%,
+      rgba(76, 122, 99, 0.3),
+      rgba(76, 122, 99, 0.06) 62%
+    );
+    font-stretch: 100%;
+  }
+  .bottle-end-amber {
+    border-color: theme("colors.amber");
+    background: radial-gradient(
+      circle at 34% 30%,
+      rgba(198, 138, 44, 0.3),
+      rgba(198, 138, 44, 0.07) 62%
+    );
+  }
+  .bottle-field {
+    height: 120px;
+    background-image:
+      radial-gradient(circle at 9px 9px, rgba(76, 122, 99, 0.55) 0 3px, transparent 3.4px),
+      radial-gradient(circle at 27px 27px, rgba(198, 138, 44, 0.45) 0 3px, transparent 3.4px);
+    background-size: 18px 18px, 36px 36px;
+    -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+    mask-image: linear-gradient(180deg, #000, transparent);
+  }
+
+  /* --- controls -------------------------------------------------------- */
+  .btn {
+    @apply inline-block font-display text-[0.78rem] uppercase tracking-[0.16em] no-underline;
+    font-weight: 600;
+    font-stretch: 100%;
+    padding: 1rem 1.7rem;
+    border: 1px solid currentColor;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+  }
+  .btn-solid {
+    @apply border-terracotta bg-terracotta text-white;
+  }
+  .btn-solid:hover {
+    background-color: #8f4222;
+    border-color: #8f4222;
+  }
+  .btn-ghost:hover {
+    background-color: rgba(20, 24, 15, 0.07);
+  }
+  .dark-band .btn-ghost:hover,
+  .on-dark.btn-ghost:hover {
+    background-color: rgba(239, 233, 220, 0.14);
+  }
+
+  .tag {
+    @apply inline-block font-display text-[0.65rem] uppercase tracking-[0.18em] text-cacao;
+    font-weight: 600;
+    font-stretch: 100%;
+    border: 1px solid var(--rule);
+    padding: 0.25rem 0.6rem;
+  }
+  .tag-dark {
+    color: rgba(239, 233, 220, 0.8);
+    border-color: rgba(239, 233, 220, 0.35);
+  }
+
+  .caption {
+    @apply font-display text-[0.72rem] uppercase tracking-[0.12em];
+    font-weight: 500;
+    font-stretch: 100%;
+    color: rgba(20, 24, 15, 0.55);
+  }
+  .dark-band .caption {
+    color: rgba(239, 233, 220, 0.6);
+  }
+
+  .prose-kawok p {
+    @apply mb-[1.1em];
+  }
+  .prose-kawok p:last-child {
+    @apply mb-0;
+  }
+}
+
+/* --- motion: one pattern, and it switches itself off ------------------- */
+.rise {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.rise.is-in {
+  opacity: 1;
+  transform: none;
+}
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .rise {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
