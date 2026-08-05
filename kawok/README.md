@@ -53,18 +53,22 @@ git push -u origin main
 > Make sure the GitHub account is one **you** own, not a developer's. Whoever
 > owns the repository, the domain and the Cloudflare account owns the website.
 
-### 3. Connect Cloudflare Pages
+### 3. Connect Cloudflare
 
-1. In the Cloudflare dashboard: **Workers & Pages → Create → Pages → Connect to Git**
-2. Choose the `kawok` repository.
-3. Set the build settings exactly:
-   - Framework preset: **Next.js (Static HTML Export)**
+1. Cloudflare dashboard → **Workers & Pages** → **Create** → **Import a
+   repository** → **Connect GitHub** → choose `kawok`.
+2. Set the build settings **manually** — Cloudflare does not fill these in:
    - Build command: `npm run build`
-   - Build output directory: `out`
-4. Deploy.
+   - Deploy command: `npx wrangler deploy`
+   - Root directory: leave empty
+3. Add an environment variable: `NODE_VERSION` = `20`
+4. Save and deploy.
 
-From then on, every time the code changes on GitHub, Cloudflare rebuilds and
-publishes the site automatically. There is no "uploading" step ever again.
+`wrangler.jsonc` in this repo tells Cloudflare that the finished site is in the
+`out` folder. Without a build command, `out` never gets created and the deploy
+fails with *"Could not detect a directory containing static files"*.
+
+From then on, every push to GitHub rebuilds and republishes automatically.
 
 ### 4. Point the domain at it
 

@@ -21,8 +21,7 @@ export default function ChaosOasisPage() {
         lede="A place where ideas became reality — and the reason anyone should believe the rest of this is possible."
         image={img.photoBuilding}
         imageAlt="A person building a bottle-and-mortar wall by hand at Chaos Oasis."
-        credit="Photograph"
-      />
+        />
 
       <section className="band">
         <div className="wrap">
@@ -35,9 +34,9 @@ export default function ChaosOasisPage() {
             ]}
           />
           <div className="mt-14 grid gap-px bg-ink/15 md:grid-cols-3">
-            <Figure className="bg-parchment pb-4" src={img.photoPyramid} alt="A small bottle-and-mortar pyramid standing at Chaos Oasis." caption="The first pyramid — photograph" imgClassName="aspect-[4/3] object-cover" />
-            <Figure className="bg-parchment pb-4" src={img.photoBottleWall} alt="Detail of a bottle wall with blue, green and amber bottle ends set into grey mortar." caption="Bottle wall — photograph" imgClassName="aspect-[4/3] object-cover" />
-            <Figure className="bg-parchment pb-4" src={img.photoStairs} alt="Steps built from bottle ends set in mortar, edged with plants." caption="Bottle steps — photograph" imgClassName="aspect-[4/3] object-cover" />
+            <Figure className="bg-parchment pb-4" src={img.photoPyramid} alt="A small bottle-and-mortar pyramid standing at Chaos Oasis." caption="The first pyramid" imgClassName="aspect-[4/3] object-cover" />
+            <Figure className="bg-parchment pb-4" src={img.photoBottleWall} alt="Detail of a bottle wall with blue, green and amber bottle ends set into grey mortar." caption="Bottle wall" imgClassName="aspect-[4/3] object-cover" />
+            <Figure className="bg-parchment pb-4" src={img.photoStairs} alt="Steps built from bottle ends set in mortar, edged with plants." caption="Bottle steps" imgClassName="aspect-[4/3] object-cover" />
           </div>
           <Course className="mt-14" />
         </div>

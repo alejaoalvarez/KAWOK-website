@@ -4,29 +4,13 @@ import PageHero from "@/components/PageHero";
 import Reveal from "@/components/Reveal";
 import Course from "@/components/Course";
 import SectionHeading from "@/components/SectionHeading";
-import { img } from "@/lib/content";
+import { img, site, kulcha, kulchaGallery, kulchaVideos } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "The Kulcha Fair",
   description:
-    "Cacao, crafts, music, food and ceremony beside the ruins of Lubaantun — an eco-friendly culture fair in Toledo District, Belize.",
+    "Belize's eco-friendly culture fair beside the ruins of Lubaantun — Maya heritage, artisan craftsmanship, cacao traditions, ceremony, food and music in Toledo District.",
 };
-
-const strands = [
-  { title: "Cacao", text: "Toledo grows some of the finest cacao in the Americas. At the fair it is drunk hot and cold, ground by hand, and talked about by the people who grow it." },
-  { title: "Crafts", text: "Jippy jappa weaving, carved jade, bags upcycled from rice sacks — makers selling their own work, at their own prices." },
-  { title: "Food", text: "Organic and locally sourced, served on compostable or reusable packaging, cooked by people from the villages around Lubaantun." },
-  { title: "Music & ceremony", text: "Drumming, dance and Maya ceremony led by their own practitioners — not performed for an audience, but shared with one." },
-];
-
-const practices = [
-  "Compostable or reusable food packaging",
-  "Organic, locally sourced meals",
-  "Composting bins throughout the fair",
-  "Free water refill stations",
-  "Direct support for small-scale artisans and farmers",
-  "Every bottle recycled — you can see where they end up",
-];
 
 export default function KulchaFairPage() {
   return (
@@ -34,27 +18,120 @@ export default function KulchaFairPage() {
       <PageHero
         eyebrow="Project"
         title="The Kulcha Fair"
-        lede="More than a festival: a community platform where Toledo's culture is bought, sold, cooked, played and passed on."
+        lede={kulcha.strapline}
         image={img.photoBottleWall}
         imageAlt="Detail of a bottle wall with blue, green and amber bottle ends set into grey mortar."
-        credit="Photograph"
       />
 
+      {/* ------------------------------------------------------ WHAT IT IS */}
       <section className="band">
         <div className="wrap">
           <SectionHeading
             eyebrow="What it is"
             title="Culture as something people do."
             lede={[
-              "The Kulcha Fair is an eco-friendly culture fair held beside the ancient Maya city of Lubaantun. It brings together makers, growers, cooks, musicians and ceremonial practitioners from across Toledo District.",
-              "It is not a display of heritage for visitors. It is a market and a gathering that happens to welcome them.",
+              "The Kulcha Fair is an eco-friendly culture fair held beside the ancient Maya city of Lubaantun, bringing together makers, growers, cooks, musicians and ceremonial practitioners from across Toledo District.",
+              "It is a market and a gathering that welcomes visitors, rather than a display staged for them.",
             ]}
           />
-          <div className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
-            {strands.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
-                <h3 className="h-sub">{s.title}</h3>
-                <p className="mt-3 text-[0.96rem] text-ink/75">{s.text}</p>
+          <div className="mt-14 grid gap-10 md:grid-cols-3">
+            {kulcha.highlights.map((h, i) => (
+              <Reveal key={h.title} delay={i * 90}>
+                <h3 className="h-sub">{h.title}</h3>
+                <p className="mt-3 text-[0.96rem] text-ink/75">{h.text}</p>
+              </Reveal>
+            ))}
+          </div>
+          <Reveal className="mx-auto mt-16 max-w-[42rem] border-y border-ink/15 py-10 text-center">
+            <p className="lede">{kulcha.communityNote}</p>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* -------------------------------------------------------- GALLERY */}
+      {kulchaGallery.length > 0 && (
+        <section className="band bg-limestone">
+          <div className="wrap">
+            <SectionHeading eyebrow="Gallery" title="From the last fair." />
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {kulchaGallery.map((g, i) => (
+                <Reveal as="figure" key={g.src} delay={i * 60}>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={g.src}
+                    alt={g.alt}
+                    loading="lazy"
+                    decoding="async"
+                    className="aspect-[4/3] w-full object-cover"
+                  />
+                  {g.caption && <figcaption className="caption mt-3">{g.caption}</figcaption>}
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {/* --------------------------------------------------------- VIDEOS */}
+      {kulchaVideos.length > 0 && (
+        <section className="band">
+          <div className="wrap">
+            <SectionHeading eyebrow="Watch" title="The fair in motion." />
+            <ul className="mt-12 grid gap-px border border-ink/15 bg-ink/15 sm:grid-cols-2">
+              {kulchaVideos.map((v, i) => (
+                <li key={v.url} className="bg-parchment">
+                  <Reveal delay={i * 60}>
+                    <a
+                      href={v.url}
+                      className="flex items-center gap-4 p-6 no-underline transition-colors hover:bg-limestone"
+                    >
+                      <span
+                        aria-hidden="true"
+                        className="bottle-end bottle-end-amber !h-11 !w-11 shrink-0"
+                      >
+                        &#9654;
+                      </span>
+                      <span>
+                        <span className="block text-[1.02rem] text-ink">{v.title}</span>
+                        {v.note && <span className="caption mt-1 block">{v.note}</span>}
+                      </span>
+                    </a>
+                  </Reveal>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      )}
+
+      {/* ------------------------------------------------------ LAST FAIR */}
+      <section className="dark-band band">
+        <div className="wrap">
+          <SectionHeading
+            eyebrow="What happens over the weekend"
+            title={kulcha.lastEdition.label}
+            lede="Two days, opening at dawn with ceremony and closing in the late afternoon. This is the shape the next fair will take."
+          />
+          <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+            {kulcha.lastEdition.days.map((day, di) => (
+              <Reveal key={day.label} delay={di * 100}>
+                <h3 className="eyebrow !text-amber mb-6">{day.label}</h3>
+                <div className="border-t border-parchment/20">
+                  {day.events.map((e) => (
+                    <div key={e.title} className="border-b border-parchment/20 py-5">
+                      <div className="flex items-baseline gap-4">
+                        <span
+                          className="font-display text-[0.95rem] text-amber"
+                          style={{ fontStretch: "100%" }}
+                        >
+                          {e.time}
+                        </span>
+                        <h4 className="text-[1.05rem]">{e.title}</h4>
+                      </div>
+                      <p className="mt-2 text-[0.93rem] text-parchment/72">{e.text}</p>
+                    </div>
+                  ))}
+                </div>
               </Reveal>
             ))}
           </div>
@@ -62,34 +139,67 @@ export default function KulchaFairPage() {
         </div>
       </section>
 
+      {/* ----------------------------------------------------- LOW IMPACT */}
       <section className="band bg-limestone">
         <div className="wrap grid gap-12 lg:grid-cols-2 lg:gap-20">
           <div>
-            <SectionHeading eyebrow="How it runs" title="An eco fair that means it." />
-            <ul className="mt-10 grid gap-3">
-              {practices.map((p, i) => (
-                <Reveal key={p} delay={i * 50}>
-                  <li className="flex items-start gap-3 border-b border-ink/12 pb-3 text-[0.96rem] text-ink/80">
-                    <span aria-hidden="true" className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full border-[1.5px] border-jade" />
-                    {p}
-                  </li>
-                </Reveal>
+            <SectionHeading
+              eyebrow="How it runs"
+              title="A low-impact celebration."
+              lede={kulcha.lowImpact.text}
+            />
+          </div>
+          <ul className="grid gap-3 self-center">
+            {kulcha.lowImpact.practices.map((p, i) => (
+              <Reveal as="li" key={p} delay={i * 50}>
+                <span className="flex items-start gap-3 border-b border-ink/12 pb-3 text-[0.96rem] text-ink/80">
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full border-[1.5px] border-jade"
+                  />
+                  {p}
+                </span>
+              </Reveal>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* ----------------------------------------------------- NEXT FAIR */}
+      <section className="band">
+        <div className="wrap grid gap-12 lg:grid-cols-2 lg:gap-20">
+          <Reveal>
+            <p className="eyebrow mb-5">Coming up</p>
+            <h2 className="h-section">{kulcha.next.heading}</h2>
+            <p className="lede mt-6">{kulcha.next.text}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <a href={site.whatsappLink} className="btn btn-solid">
+                Message us on WhatsApp
+              </a>
+              <Link href="/contact" className="btn btn-ghost">
+                Other ways to reach us
+              </Link>
+            </div>
+          </Reveal>
+          <Reveal delay={90}>
+            <p className="eyebrow mb-5">Get in touch about</p>
+            <ul className="grid gap-3">
+              {kulcha.next.calls.map((c) => (
+                <li
+                  key={c}
+                  className="flex items-start gap-3 border-b border-ink/12 pb-3 text-[0.98rem] text-ink/80"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="mt-2 h-2.5 w-2.5 shrink-0 rounded-full border-[1.5px] border-terracotta"
+                  />
+                  {c}
+                </li>
               ))}
             </ul>
-          </div>
-          <Reveal>
-            <p className="eyebrow mb-5">Next edition</p>
-            <h2 className="h-sub">Dates for the next fair are being confirmed.</h2>
-            <p className="lede mt-5">
-              The last fair ran over two days beside Lubaantun, with a Maya thanksgiving
-              ceremony, a solstice ceremony at dawn, workshops, live demonstrations and a
-              sacred cacao dance.
+            <p className="caption mt-6">
+              Follow the fair on Instagram at {site.instagramHandle}
             </p>
-            <p className="lede mt-4">
-              Message us to be told when dates are set, or to apply as a vendor, maker,
-              performer or volunteer.
-            </p>
-            <Link href="/contact" className="btn btn-solid mt-8">Ask about the next fair</Link>
           </Reveal>
         </div>
       </section>

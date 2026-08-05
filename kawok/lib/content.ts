@@ -22,8 +22,9 @@ export const site = {
   instagramHandle: "@TheToledoTempleTrail",
   facebook: "https://www.facebook.com/TheChaosOasisBelize/",
   chaosOasis: "https://www.chaosoasisbelize.com",
-  // Replace with the real domain once it is registered with Porkbun.
-  url: "https://kawok.org",
+  // The domain registered at Porkbun. Everything (sitemap, social sharing
+  // previews, canonical links) is generated from this one line.
+  url: "https://kawokbelize.com",
 };
 
 export type NavItem = { label: string; href: string };
@@ -217,3 +218,116 @@ export const culturalStatement = {
     "Cleaning and restoring the landscape is intended as an act of stewardship and gratitude, not as a claim on anyone's heritage.",
   ],
 };
+
+/* ------------------------------------------------------------------ */
+/*  THE KULCHA FAIR                                                    */
+/* ------------------------------------------------------------------ */
+
+export const kulcha = {
+  strapline:
+    "Belize's first-of-its-kind eco-friendly culture fair, honouring Maya heritage, artisan craftsmanship, cacao traditions and sustainable living — beside the ancient ruins of Lubaantun.",
+  communityNote:
+    "The fair is more than an event. It is a community collaboration that lifts sustainable practice, local production, Maya cultural preservation, eco-friendly tourism and Belizean storytelling — and puts money directly into the hands of the people who make and grow things here.",
+  highlights: [
+    {
+      title: "Handcrafted Belizean goods",
+      text: "Local makers selling unique, sustainable work at their own prices — jippy jappa weaving, carved jade, textiles and bags upcycled from rice sacks.",
+    },
+    {
+      title: "Ceremony and performance",
+      text: "Maya ceremony, drumming, dance and live demonstrations, led by their own practitioners rather than performed for an audience.",
+    },
+    {
+      title: "Art, wellness and nature",
+      text: "Guided sessions, artisan workshops and wellness activities that connect visitors to the land the fair sits on.",
+    },
+  ],
+  lowImpact: {
+    text: "Chaos Oasis is fully off-grid, and the fair is run to match. Bring a reusable water bottle and bag, or pick up a Kulcha Fair tote or reusable cup on site.",
+    practices: [
+      "Compostable or reusable food packaging",
+      "Organic, locally sourced meals",
+      "Direct support for small-scale artisans and farmers",
+      "Composting bins throughout the fair",
+      "Free water refill stations",
+      "Every bottle recycled — the buildings around you show where they end up",
+    ],
+  },
+  /**
+   * The last fair ran over two days. Kept here as the record of what
+   * happens at a Kulcha Fair, and as the template for the next one.
+   */
+  lastEdition: {
+    label: "December 2025 — the first Kulcha Fair",
+    days: [
+      {
+        label: "Day one",
+        events: [
+          {
+            time: "10:30",
+            title: "Thanksgiving Maya Ceremony",
+            text: "Maya priest José Magaña led a ritual of gratitude and renewal using copal, cacao, conch horns and sacred fire. Visitors brought their own offerings or wrote intentions for the altar.",
+          },
+          {
+            time: "11:30",
+            title: "The fair opens",
+            text: "Talks, workshops and demonstrations: traditional tortilla making, jippy jappa weaving, organic meals, hot and cold cacao, handicrafts, free water refills and a juice bar.",
+          },
+        ],
+      },
+      {
+        label: "Day two",
+        events: [
+          {
+            time: "06:30",
+            title: "Maya Solstice Ceremony",
+            text: "Maya priestess Gigi welcomed the rising sun and honoured the ancient cycles of time in a dawn ceremony lasting three to four hours.",
+          },
+          {
+            time: "10:30",
+            title: "The fair opens again",
+            text: "A second full day of makers, food, cacao and workshops.",
+          },
+          {
+            time: "15:30",
+            title: "Sacred Cacao Dance",
+            text: "The traditional dance from Crique Jute honouring cacao's role in Maya culture.",
+          },
+        ],
+      },
+    ],
+  },
+  next: {
+    heading: "The next Kulcha Fair",
+    text: "Dates for the next fair are being confirmed. It will run again beside Lubaantun, over two days, with ceremony at dawn and makers, cacao and workshops through the day.",
+    calls: [
+      "Be told when dates are announced",
+      "Apply as a maker, grower or food vendor",
+      "Offer a workshop or performance",
+      "Volunteer for the weekend",
+    ],
+  },
+};
+
+/**
+ * PHOTOGRAPHS FROM PAST FAIRS.
+ *
+ * To add one: upload the image to /public/images/ (resized to about 1600
+ * pixels wide), then add a line here, for example:
+ *
+ *   { src: "/images/kulcha-cacao.webp", alt: "Cacao being ground by hand", caption: "Cacao, 2025" },
+ *
+ * While this list is empty the gallery simply does not appear on the page —
+ * there is no empty box and nothing looks unfinished.
+ */
+export const kulchaGallery: { src: string; alt: string; caption?: string }[] = [];
+
+/**
+ * VIDEOS FROM PAST FAIRS.
+ *
+ * These are shown as links rather than embedded players, which keeps the
+ * page fast and stops YouTube or Instagram tracking your visitors. Add one:
+ *
+ *   { url: "https://www.instagram.com/p/XXXX/", title: "Sacred Cacao Dance", note: "Instagram, 2025" },
+ */
+export const kulchaVideos: { url: string; title: string; note?: string }[] = [];

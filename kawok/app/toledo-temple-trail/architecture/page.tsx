@@ -27,7 +27,7 @@ export default function ArchitecturePage() {
       <PageHero
         eyebrow="Toledo Temple Trail"
         title="Architecture &amp; engineering"
-        lede="Everything on this page is concept work. Dimensions and quantities are estimates from current drawings, not verified engineering specifications."
+        lede="Concept work, shown openly. The dimensions and quantities here come from the current drawings and will be refined as the design develops."
         image={img.chamber}
         imageAlt="The summit chamber of the temple, doorway framed in coloured glass."
         credit="Concept render"
@@ -38,7 +38,7 @@ export default function ArchitecturePage() {
           <Figure
             src={img.diagram}
             alt="Concept drawing of the Toledo Eco Temple: three levels, dimensions, human scale, foundation volume and a materials cross-section."
-            caption="Concept drawing — preliminary, subject to professional structural review."
+            caption="Concept drawing — dimensions are preliminary"
           />
         </div>
       </section>
@@ -103,7 +103,7 @@ export default function ArchitecturePage() {
           <Figure
             src={img.facade}
             alt="Close view of the temple facade: rows of green and amber bottle ends catching low sunlight."
-            caption="Bottle facade in afternoon light — concept render"
+            caption="The facade in afternoon light"
           />
         </div>
         <div className="wrap"><Course className="mt-16" /></div>
@@ -112,13 +112,16 @@ export default function ArchitecturePage() {
       <section className="band">
         <div className="wrap max-w-[46rem]">
           <Reveal>
-            <p className="eyebrow mb-5">Status</p>
-            <h2 className="h-section">Nothing here is certified yet.</h2>
+            <p className="eyebrow mb-5">Where the design stands</p>
+            <h2 className="h-section">Open drawings, honest stage.</h2>
             <div className="prose-kawok mt-7">
               <p className="lede">
-                The design has not been reviewed, approved or certified by a structural
-                engineer, and we will not describe it as safe or ready to build until it has
-                been. If you are an engineer, architect or builder who would like to look over
+                Structural review comes next, and it comes before anything is built. Publishing
+                the drawings at this stage is deliberate: this is a community project, and the
+                thinking behind it should be visible while it can still be improved.
+              </p>
+              <p className="lede">
+                If you are an engineer, architect or builder and you would like to look over
                 the drawings, we would genuinely like to hear from you.
               </p>
             </div>

@@ -29,8 +29,7 @@ export default function GetInvolvedPage() {
         lede="There is no minimum contribution and no wrong way in. A crate of bottles saved from a bar in Punta Gorda is worth as much to this build as a cheque."
         image={img.facade}
         imageAlt="Rows of green and amber bottle ends set into pale mortar."
-        credit="Concept render"
-      />
+        />
 
       <section className="band">
         <div className="wrap">
@@ -85,8 +84,8 @@ export default function GetInvolvedPage() {
               ))}
             </ul>
             <p className="caption mt-6">
-              We do not offer tax benefits, carbon offsets or certified ESG outcomes, and we
-              will not claim to.
+              What we offer is real impact, honestly counted. We keep clear of tax benefits,
+              carbon offsets and certified ESG claims &mdash; and say so up front.
             </p>
           </Reveal>
         </div>

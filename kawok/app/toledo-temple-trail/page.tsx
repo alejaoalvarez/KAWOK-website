@@ -28,8 +28,8 @@ const faqs = [
     a: "No. They are contemporary environmental monuments inspired by the proportion and geometry of Maya architecture. They are not reconstructions, replicas or sacred structures, and they are not built on archaeological sites.",
   },
   {
-    q: "Is the structure safe?",
-    a: "The design is at concept stage. The dimensions and material quantities published here are estimates from the current drawings and have not yet been through professional structural review. That review happens before anything is built.",
+    q: "How solid is the design?",
+    a: "It is at concept stage. The dimensions and quantities published here are estimates from the current drawings, and professional structural review comes before any ground is broken. We would rather show you honest drawings now than certified ones later.",
   },
   {
     q: "Where is the first temple?",
@@ -41,7 +41,7 @@ const faqs = [
   },
   {
     q: "Can I visit?",
-    a: "Not yet — there is nothing built to visit. Chaos Oasis, where the bottle walls, arches and the first small pyramid already stand, is open to visitors today.",
+    a: "Chaos Oasis is open to visitors today, and the bottle walls, arches and first small pyramid are all there to see. The temple itself is still at drawing stage — come and watch it go up.",
   },
 ];
 
@@ -68,11 +68,12 @@ export default function TempleTrailPage() {
             ]}
           />
           <Reveal className="mt-12 max-w-[46rem]">
-            <p className="eyebrow mb-4">What they are not</p>
+            <p className="eyebrow mb-4">Contemporary work</p>
             <p className="lede">
-              They are not ancient temples, replicas of sacred structures, or archaeological
-              reconstructions. They are contemporary works, built now, by the people who live
-              here.
+              These are new buildings, made now, by the people who live here. They draw on the
+              proportion and geometry of Maya architecture the way any architect draws on the
+              tradition they admire &mdash; as inspiration for something of their own, rather
+              than as a template to copy.
             </p>
           </Reveal>
           <Course className="mt-14" />
@@ -167,7 +168,6 @@ export default function TempleTrailPage() {
           <Figure
             src={img.facade}
             alt="Rows of green and amber bottle ends set into pale mortar on the temple facade."
-            caption="Bottle facade — concept render"
           />
         </div>
       </section>

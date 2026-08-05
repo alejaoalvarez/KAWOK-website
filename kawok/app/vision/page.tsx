@@ -44,8 +44,7 @@ export default function VisionPage() {
         lede="KAWOK exists to honour cultural heritage while creating regenerative futures — through environmental stewardship, tourism, education, architecture, creativity and community."
         image={img.chamber}
         imageAlt="The summit chamber of the temple, its doorway framed in coloured glass."
-        credit="Concept render"
-      />
+        />
 
       <section className="band">
         <div className="wrap">

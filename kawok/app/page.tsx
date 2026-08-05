@@ -86,7 +86,7 @@ export default function HomePage() {
           <Figure
             src={img.cutaway}
             alt="Cutaway view of the temple showing compacted plastic waste filling the core beneath the bottle facade."
-            caption="Cutaway — concept render. The core is packed with compacted non-biodegradable waste."
+            caption="The core is packed with compacted non-biodegradable waste"
             imgClassName="max-w-[30rem]"
           />
         </div>
@@ -138,14 +138,14 @@ export default function HomePage() {
               className="bg-limestone pb-4"
               src={img.terrain}
               alt="The cleared field at Chaos Oasis where the first temple is planned, under open sky."
-              caption="The site today — photograph"
+              caption="The site today"
               imgClassName="aspect-[3/2] object-cover"
             />
             <Figure
               className="bg-limestone pb-4"
               src={img.photoPyramid}
               alt="A small bottle-and-mortar pyramid already standing at Chaos Oasis."
-              caption="Already standing at Chaos Oasis — photograph"
+              caption="Already standing at Chaos Oasis"
               imgClassName="aspect-[3/2] object-cover"
             />
           </div>
@@ -344,7 +344,6 @@ export default function HomePage() {
           <Figure
             src={img.facade}
             alt="Close view of the temple facade: rows of green and amber bottle ends set into pale mortar."
-            caption="Bottle facade — concept render"
           />
         </div>
       </section>
